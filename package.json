@@ -28,6 +28,8 @@
     "vite": "^4.3.9"
   },
   "dependencies": {
-    "@vercel/node": "^2.15.10"
+    "@vercel/node": "^2.15.10",
+    "vue-router": "^3.6.5",
+    "vue3-carousel": "^0.3.3"
   }
 }

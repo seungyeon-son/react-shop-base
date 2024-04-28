@@ -1,5 +1,4 @@
 const Drawer = (): JSX.Element => {
-
   return (
     <div className="drawer-side">
       <label htmlFor="side-menu" className="drawer-overlay"></label>
