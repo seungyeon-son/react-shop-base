@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import Drawer from "./components/common/Drawer";
 import Router from "./router/router";
 import Nav from "./components/common/Nav";
+import Footer from "./components/common/Footer";
 
 const App = (): JSX.Element => {
   return (
@@ -16,6 +17,7 @@ const App = (): JSX.Element => {
           <Router />
         </section>
         {/* Footer를 렌더링 하세요 */}
+        <Footer />
       </section>
       <Drawer />
     </BrowserRouter>
