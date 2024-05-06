@@ -1,3 +1,4 @@
+import { Category } from "./../constants/category";
 import { selector } from "recoil";
 import CONSTANTS from "../constants/constants";
 
@@ -14,7 +15,7 @@ export interface IProduct {
   readonly id: number;
   readonly title: string;
   readonly description: string;
-  // readonly category: string;
+  readonly category: string;
   readonly price: number;
   readonly image: string;
   readonly rating: IRating;

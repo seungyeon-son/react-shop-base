@@ -6,7 +6,7 @@ import Fashion from "../views/Fashion";
 import CartList from "../components/carts/CartList";
 import Digital from "../views/Digital";
 import Accessory from "../views/Accessory";
-import DetailPage from "../views/ProductDetail";
+import DetailPage from "../views//DetailPage";
 
 const Router = (): JSX.Element => {
   return (

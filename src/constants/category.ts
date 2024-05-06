@@ -1,11 +1,8 @@
-/**
- * const assertion으로 여러분이 자주 사용하는 카테고리 등을 정의하고 사용 해보세요.
- */
 export const Category: { [key: string]: string } = {
-  "men's clothing": "패션",
-  "women's clothing": "패션",
-  electronics: "디지털",
-  jewelery: "액세서리",
+  "men's clothing": "fashion",
+  "women's clothing": "fashion",
+  electronics: "digital",
+  jewelery: "accessory",
 } as const;
 
 export const MENUS = {

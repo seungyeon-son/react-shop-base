@@ -1,6 +1,6 @@
 import BreadCrumb from "../components/common/Breadcrumb";
 import ProductsLoad from "../components/products/ProductsLoad";
-import { MENUS } from "../constants/category";
+import { Category, MENUS } from "../constants/category";
 /**
  * 뷰페이지에는 특별한 로직이 포함되어서는 안됩니다.
  * 컴포넌트를 불러다 렌더링하는 용도로만 사용 하세요.
@@ -15,7 +15,7 @@ const Fashion = (): JSX.Element => {
       <h1 className="mb-5 lg:mb-8 text-3xl lg:text-4xl text-center font-bold">패션</h1>
       <article className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 item_list">
         {/* componetns products 폴더에 공통으로 사용할 ItemList 컴포넌트를 만들어서 노출 시켜 보세요. */}
-        <ProductsLoad limit={10} Category={"jewelery"} />
+        <ProductsLoad limit={12} category={"fashion"} />
       </article>
     </section>
   );
