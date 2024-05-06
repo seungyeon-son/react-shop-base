@@ -15,7 +15,7 @@ const Digital = (): JSX.Element => {
       <h1 className="mb-5 lg:mb-8 text-3xl lg:text-4xl text-center font-bold">디지털</h1>
       <article className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 item_list">
         {/* componetns products 폴더에 공통으로 사용할 ItemList 컴포넌트를 만들어서 노출 시켜 보세요. */}
-        <ProductsLoad limit={10} Category="electronics" key={"electronics"} />
+        <ProductsLoad limit={10} category={"electronics"} />
       </article>
     </section>
   );
