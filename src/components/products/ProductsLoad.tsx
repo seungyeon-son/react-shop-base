@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-interface Product {
-  image: string;
-  title: string;
-  price: number;
-}
-
-const ProductsLoad = ({ limit, category }: { limit: number; category: string }): JSX.Element => {
+import { Link } from "react-router-dom";
+import { IProduct } from "../../store/products";
+import { Category } from "../../constants/category";
+const ProductsLoad = ({ limit }: { limit: number }): JSX.Element => {
   const [loading, setLoading] = useState(true);
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://fakestoreapi.com/products");
-        setProducts(response.data.slice(0, limit)); // API에서 받은 데이터를 제한된 수로 자름
+        let apiUrl = "https://fakestoreapi.com/products";
+        if (Category) {
+          apiUrl += `?category=${Category}`;
+        }
+        const response = await axios.get(apiUrl);
+        setProducts(response.data.slice(0, limit));
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -24,11 +24,11 @@ const ProductsLoad = ({ limit, category }: { limit: number; category: string }):
     };
 
     fetchProducts();
-  }, [limit, category]); // limit이 변경될 때마다 다시 호출
+  }, [limit, Category]);
 
   return (
     <>
-      {loading ? (
+      {loading && Category ? (
         Array.from(Array(limit)).map((_, index) => (
           <div key={index} className="card bordered animate-pulse">
             <div className="h-80 rounded bg-gray-100"></div>
@@ -43,10 +43,23 @@ const ProductsLoad = ({ limit, category }: { limit: number; category: string }):
         ))
       ) : products.length > 0 ? (
         products.map((product, index) => (
-          <div key={index} className="card bordered">
-            <img src={product.image} alt={product.title} />
-            <h2>{product.title}</h2>
-            <p>가격: {product.price}</p>
+          <div key={index} className="card bordered overflow-hidden">
+            <Link
+              to={`/product/${product.id}`}
+              className="card card-bordered border-gray-200 dark:border-gray-800 card-compact lg:card-normal group isLink"
+            >
+              <figure className="flex h-80 bg-white overflow-hidden">
+                <img
+                  className="transition-transform duration-300 w-[135px] h-[160px] object-contain group-[.isLink]:hover:scale-125"
+                  src={product.image}
+                  alt={product.title}
+                />
+              </figure>
+              <div className="card-body bg-gray-100 dark:bg-gray-700">
+                <p className="card-title text-base h-[72px] items-start">{product.title}</p>
+                <p className="text-base">${product.price}</p>
+              </div>
+            </Link>
           </div>
         ))
       ) : (

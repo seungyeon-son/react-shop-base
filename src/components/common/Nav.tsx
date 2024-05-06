@@ -7,7 +7,7 @@ const Nav = (): JSX.Element => {
             href="/"
             className="router-link-active router-link-exact-active text-lg text-gray-700 dark:text-white font-bold whitespace-nowrap"
           >
-            Vuew Shop
+            Vue Shop
           </a>
         </h1>
         <div className="flex-none hidden md:flex md:flex-1 ml-2">
